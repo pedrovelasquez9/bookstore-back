@@ -1,7 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Audit } from './audit.base';
 
 @Entity()
-export class Books {
+export class Books extends Audit {
   @PrimaryGeneratedColumn()
   idbooks: number;
 
@@ -10,19 +11,4 @@ export class Books {
 
   @Column()
   ISBN: string;
-
-  @Column()
-  status: boolean;
-
-  @Column()
-  created_by: string;
-
-  @Column({ type: 'datetime' })
-  created_at: Date;
-
-  @Column()
-  updated_by: string;
-
-  @Column({ type: 'datetime' })
-  updated_at: Date;
 }
